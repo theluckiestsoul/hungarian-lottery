@@ -50,3 +50,5 @@ Improving performance depends on various factors. Here are some ways to improve 
 - Without loading the entire file into memory, we can use a streaming approach to process the file in chunks.
 - We can store the players in a database and use SQL queries to find the winners. This can be faster than processing the players in memory.
 - These are some of the ways to improve the performance of the program. The best approach depends on the specific requirements and constraints of the problem.
+
+Note: The program is tested on a machine with 8 CPU cores and 16GB RAM. The performance may vary depending on the machine configuration and the number of players.
