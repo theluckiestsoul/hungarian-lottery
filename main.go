@@ -11,6 +11,7 @@ import (
 	"time"
 )
 
+// Player represents a player with 5 distinct numbers
 type Player struct {
 	numbers [5]int
 }
@@ -37,6 +38,7 @@ func NewPlayer(s string) (Player, error) {
 	return Player{numbers}, nil
 }
 
+// Pick represents a lottery pick with 5 distinct numbers
 type Pick struct {
 	numbers [5]int
 }
@@ -64,6 +66,8 @@ func NewPick(s string) (Pick, error) {
 }
 
 // CountWinners counts the winners for a given lottery pick using concurrency
+// The function uses a worker pool to distribute the work among multiple CPUs
+// The function returns an array of 4 integers, where the i-th element is the number of players with i+2 matches
 func (pick Pick) CountWinners(players []Player) [4]int {
 	var winners [4]int
 	var pickSet [91]bool // Assuming lottery numbers are between 1 and 90
@@ -96,11 +100,13 @@ func (pick Pick) CountWinners(players []Player) [4]int {
 			for _, player := range playersChunk {
 				matches := 0
 				for _, number := range player.numbers {
+					// Check if the number is in the pick and is between 1 and 90
 					if number >= 1 && number <= 90 && pickSet[number] {
 						matches++
 					}
 				}
 				if matches >= 2 {
+					// Increment the number of winners with matches-2
 					localWinners[i][matches-2]++
 				}
 			}

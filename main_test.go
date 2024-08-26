@@ -13,9 +13,9 @@ func TestNewPlayer(t *testing.T) {
 	}{
 		{"1 2 3 4 5", Player{[5]int{1, 2, 3, 4, 5}}, false},
 		{"10 20 30 40 50", Player{[5]int{10, 20, 30, 40, 50}}, false},
-		{"1 2 3 4", Player{}, true},     // Invalid input
-		{"1 2 3 4 5 6", Player{}, true}, // Invalid input
-		{"a b c d e", Player{}, true},   // Invalid input
+		{"1 2 3 4", Player{}, true},
+		{"1 2 3 4 5 6", Player{}, true},
+		{"a b c d e", Player{}, true},
 	}
 
 	for _, test := range tests {
@@ -38,9 +38,9 @@ func TestNewPick(t *testing.T) {
 	}{
 		{"1 2 3 4 5", Pick{[5]int{1, 2, 3, 4, 5}}, false},
 		{"10 20 30 40 50", Pick{[5]int{10, 20, 30, 40, 50}}, false},
-		{"1 2 3 4", Pick{}, true},     // Invalid input
-		{"1 2 3 4 5 6", Pick{}, true}, // Invalid input
-		{"a b c d e", Pick{}, true},   // Invalid input
+		{"1 2 3 4", Pick{}, true},
+		{"1 2 3 4 5 6", Pick{}, true},
+		{"a b c d e", Pick{}, true},
 	}
 
 	for _, test := range tests {
