@@ -24,12 +24,12 @@ jobs:
       - name: Test
         run: go test ./...
 
-      - name: Create Pull Request
-        if: github.ref == 'refs/heads/main'
-        uses: peter-evans/create-pull-request@v5
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          branch: auto-generated-changes-${{ github.actor }}
-          commit-message: Automated changes from main branch
-          title: 'Automated changes from main branch by ${{ github.actor }}'
-          body: 'This pull request contains changes automatically generated when updates are pushed to the main branch by ${{ github.actor }}.'
+      # - name: Create Pull Request
+      #   if: github.ref == 'refs/heads/main'
+      #   uses: peter-evans/create-pull-request@v5
+      #   with:
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     branch: auto-generated-changes-${{ github.actor }}
+      #     commit-message: Automated changes from main branch
+      #     title: 'Automated changes from main branch by ${{ github.actor }}'
+      #     body: 'This pull request contains changes automatically generated when updates are pushed to the main branch by ${{ github.actor }}.'
